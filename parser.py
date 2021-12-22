@@ -8,7 +8,7 @@ def parse_notes(text: str) -> OrderedDict:
     data = OrderedDict()
     for item in parsed_data:
         date = re.search(r"\d{2}.\d{2}.\d{4}", item).group(0)
-        arr_info = re.findall(r"(\d+) - ([\w()\s]+)\n", item)
+        arr_info = re.findall(r"(\d+) - (.+)(\n|$)", item)
         data[date] = [
             {
                 "price": info[0], "comment": info[1]
